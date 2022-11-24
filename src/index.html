@@ -1,18 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Educator JS Codespaces Template</title>
+    <title> Algoritmo Piedra Papel o Tijera</title>
     <link rel="stylesheet" href="styles.css" />
+
+
+<script>
+
+    function numeroAleatorio( min , max ) {
+    return Math.floor( Math.random() * ( max - min + 1 ) + min );
+    }
+
+    function elección(jugada){
+      let resultado = "";
+      let numberjugada = 
+                    jugada == 1 ?  resultado = "Piedra🪨" :
+                    jugada == 2 ? resultado = "Papel📄" :
+                    jugada == 3 ?  resultado = "Tijera✂️" :
+                    resultado = "Error";
+
+                    return resultado
+                    
+    }
+  
+  //Elección de jugador
     
-  </head>
-  <body>
-    <noscript>You need to enable Javascript to run this application.</noscript>
-    <div id="app">
-      <!-- Your react app will be rendered here -->
-    </div>
-    <script type="module" src="index.js"></script>
-  </body>
+    let jugador = 0;
+    let computadora = 0
+    let triunfos = 0
+    let perdidas = 0
+    let resta = 0
+
+
+   function combate(jugador, computadora){
+    let mensaje = ""
+    resta = jugador - computadora
+    resta == 0 ? mensaje = "Empate😒":
+    resta == 1 || resta == -2 ? (mensaje = "Ganaste 🙌😎", triunfos++): 
+     (mensaje = "Perdiste 😭😭", perdidas++ )
+   return mensaje
+   }
+
+
+    while(triunfos < 3 && perdidas < 3  ){
+     
+     computadora = numeroAleatorio( 1 , 3 )
+
+    jugador = prompt("Elije 1 piedra🪨, 2 papel📄, 3 tijera✂️: ")
+
+     alert("Tu elegiste: " + elección(jugador))
+     alert("Computadora eligio: " + elección(computadora))
+     
+     alert(combate(jugador, computadora))
+
+    }
+
+     alert("Ganaste " + triunfos + " veces. Perdiste: " + perdidas + " veces ")
+
+
+
+    //Quien ganas
+
+/*
+let quien_gana = 
+   
+    jugador == computadora ? alert("Empate😒") :
+    jugador == 1 && computadora == 3 ? alert("Ganaste 🙌😎") :
+    jugador == 2 && computadora == 1 ?  alert("Ganaste 🙌😎") :
+    jugador == 3 && computadora == 2 ? alert("Ganaste 🙌😎"):
+    jugador != 1 || 2 || 3 ? alert("elegiste numero equivocado"):
+    alert("Perdiste 😭😭");
+
+*/
+    
+ 
+
+</script>
+
+</head>
+<body>
+  <h1>PIEDRA🪨, PAPEL📄 O TIJERA✂️</h1>
+</body>
+
 </html>
